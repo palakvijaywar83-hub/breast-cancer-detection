@@ -1,0 +1,58 @@
+# 🩺 Breast Cancer Detection using Machine Learning
+
+A comparative machine learning study that classifies breast tumours as **malignant** or **benign** using the Wisconsin Diagnostic Breast Cancer (WDBC) dataset. Built as part of the **InternPe AI/ML Internship**.
+
+## 📌 Overview
+
+Early and accurate breast cancer diagnosis significantly improves survival outcomes. This project trains and compares five classical ML algorithms on 30 real-valued features extracted from digitised FNA (fine needle aspirate) biopsy images, then evaluates them using metrics suited to a medical diagnosis context — not just accuracy, but recall and ROC-AUC too.
+
+## 🧠 Models Compared
+
+| Model | Role |
+|---|---|
+| Logistic Regression | Interpretable baseline |
+| K-Nearest Neighbours | Instance-based learner |
+| Support Vector Machine (RBF) | High-dimensional margin classifier |
+| Random Forest | Ensemble + feature importance |
+| Gaussian Naive Bayes | Fast probabilistic baseline |
+
+## 📊 Results
+
+All models achieve **95–99% accuracy** and **ROC-AUC** on the held-out test set. The best model is selected automatically by F1-score and evaluated in depth with a confusion matrix, classification report, and ROC curve.
+
+## 🗂️ Project Structure
+├── Breast_Cancer_Detection_InternPe.ipynb   # Full Colab-ready notebook (EDA → models → evaluation → save)
+├── breast_cancer_best_model.pkl             # Serialised best-performing model
+├── breast_cancer_scaler.pkl                 # Fitted StandardScaler for inference
+└── README.md
+## ⚙️ Tech Stack
+
+Python · scikit-learn · pandas · NumPy · Matplotlib · Seaborn · joblib
+
+## 🚀 How to Run
+
+1. Open `Breast_Cancer_Detection_InternPe.ipynb` in Google Colab or Jupyter.
+2. Run all cells top to bottom — the dataset loads directly from `sklearn.datasets`, no external download needed.
+3. The trained model and scaler are saved as `.pkl` files for reuse.
+
+```python
+import joblib
+model = joblib.load('breast_cancer_best_model.pkl')
+scaler = joblib.load('breast_cancer_scaler.pkl')
+```
+
+## ⚠️ Disclaimer
+
+This is an educational/research prototype trained on a public benchmark dataset. It is **not** a certified medical diagnostic tool and should not be used for real clinical decision-making.
+
+## 🔮 Future Work
+
+- Hyperparameter tuning (GridSearchCV / Optuna)
+- SHAP-based explainability
+- Streamlit/Flask deployment demo
+
+---
+**Author:** Palak Vijaywar — B.Tech AI & DS, Priyadarshini College of Engineering, Nagpur
+**Internship:** InternPe (AI/ML Track)
+
+Open to collaboration, feedback, and pull requests! 🙌
